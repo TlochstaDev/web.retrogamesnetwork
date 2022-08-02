@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .shown {
+      display: initial !important;
+    }
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+  <title>Developer Portal - Generate API Key</title>
+</head>
+
+<body>
+  <div class="bg-indigo-900 text-center py-4 lg:px-4" style="display: none">
+  <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+    <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">✓</span>
+    <span class="font-semibold mr-2 text-left flex-auto" id="generated-key">Generated Key: </span>
+    <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+  </div>
+</div>
+    <nav class="px-4 py-1 h-auto mb-4 w3-full flex md:flex-wrap flex-col md:flex-row items-center bg-gray-50">
+        <div class="flex flex-wrap flex-grow items-center"><img class="h-12 w-12 rounded-full bg-blue-200" alt="Logo" src="https://tlochstadev.github.io/web.retrogamesnetwork/storage/images/retrogamesnetwork_logo.png"><span class="font-semibold text-xl m-2">Retro Games Network</span></div>
+        <div class="flex flex-wrap h-full items-center"><a class="p-4" href="https://tlochstadev.github.io/web.retrogamesnetwork/en-US/download.htm">Download</a><a class="p-4" href="https://tlochstadev.github.io/web.retrogamesnetwork/en-US/plans.htm">Pricing</a><button href="https://tlochstadev.github.io/web.retrogamesnetwork/en-US/games.htm" class="px-4 py-2 rounded-md bg-blue-200 hover:bg-blue-300"> Play </button></div>
+    </nav>
+<br>
+  <h1>Generate API Key</h1>
+  <form class="w-full max-w-sm">
+  <div class="flex items-center border-b border-teal-500 py-2">
+    <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Project ID" aria-label="Project ID">
+    <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button" id="generateID">
+      Generate
+    </button>
+  </div>
+</form>
+  <script>
+    function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
+
+    var generateKey = document.getElementById("generateID");
+    var keyLabel = document.getElementById("generated-key");
+    
+    keyLabel.text = "Generated Key: " + makeid();
+    generateKey.classList.add("shown");
+  </script>
+  </body>
+</html>
